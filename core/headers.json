@@ -1,0 +1,314 @@
+{
+    "A-IM": {
+        "description": "Acceptable instance-manipulations for the request.",
+        "security": "no"
+    },
+    "Accept": {
+        "description": "Media type(s) that is(/are) acceptable for the response. See Content negotiation.",
+        "security": "no"
+    },
+    "Accept-Charset": {
+        "description": "Character sets that are acceptable.",
+        "security": "no"
+    },
+    "Accept-Encoding": {
+        "description": "List of acceptable encodings. See HTTP compression.",
+        "security": "no"
+    },
+    "Accept-Language": {
+        "description": "List of acceptable human languages for response. See Content negotiation.",
+        "security": "no"
+    },
+    "Accept-Datetime": {
+        "description": "Acceptable version in time.",
+        "security": "no"
+    },
+    "Access-Control-Request-Method,Access-Control-Request-Headers": {
+        "description": "Initiates a request for cross-origin resource sharing with Origin (below).",
+        "security": "no"
+    },
+    "Authorization": {
+        "description": "Authentication credentials for HTTP authentication.",
+        "security": "no"
+    },
+    "Cache-Control": {
+        "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds",
+        "security": "no"
+    },
+    "Content-Length": {
+        "description": "The length of the response body in octets (8-bit bytes)",
+        "security": "no"
+    },
+    "Content-MD5": {
+        "description": "A Base64-encoded binary MD5 sum of the content of the response",
+        "security": "no"
+    },
+    "Content-Type": {
+        "description": "The MIME type of this content",
+        "security": "no"
+    },
+    "Cookie": {
+        "description": "An HTTP cookie previously sent by the server with Set-Cookie (below).",
+        "security": "no"
+    },
+    "Date": {
+        "description": "The date and time that the message was sent (in \"HTTP-date\" format as defined by RFC 7231) ",
+        "security": "no"
+    },
+    "Expect": {
+        "description": "Indicates that particular server behaviors are required by the client.",
+        "security": "no"
+    },
+    "Forwarded": {
+        "description": "Forwarded: for=192.0.2.60;proto=http;by=203.0.113.43 Forwarded: for=192.0.2.43, for=198.51.100.17",
+        "security": "no"
+    },
+    "From": {
+        "description": "The email address of the user making the request.",
+        "security": "no"
+    },
+    "If-Match": {
+        "description": "Only perform the action if the client supplied entity matches the same entity on the server. This is mainly for methods like PUT to only update a resource if it has not been modified since the user last updated it.",
+        "security": "no"
+    },
+    "If-Modified-Since": {
+        "description": "Allows a 304 Not Modified to be returned if content is unchanged.",
+        "security": "no"
+    },
+    "If-None-Match": {
+        "description": "Allows a 304 Not Modified to be returned if content is unchanged, see HTTP ETag.",
+        "security": "no"
+    },
+    "If-Range": {
+        "description": "If the entity is unchanged, send me the part(s) that I am missing; otherwise, send me the entire new entity.",
+        "security": "no"
+    },
+    "Only send the response if the entity has not been modified since a specific time.": {
+        "description": "If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT",
+        "security": "no"
+    },
+    "Max-Forwards": {
+        "description": "Limit the number of times the message can be forwarded through proxies or gateways.",
+        "security": "no"
+    },
+    "Origin": {
+        "description": "Initiates a request for cross-origin resource sharing (asks server for Access-Control-* response fields).",
+        "security": "no"
+    },
+    "Pragma": {
+        "description": "Implementation-specific fields that may have various effects anywhere along the request-response chain.",
+        "security": "no"
+    },
+    "Proxy-Authorization": {
+        "description": "Authorization credentials for connecting to a proxy.",
+        "security": "no"
+    },
+    " Range": {
+        "description": "Request only part of an entity.  Bytes are numbered from 0.  See Byte serving.",
+        "security": "no"
+    },
+    "Referer": {
+        "description": "This is the address of the previous web page from which a link to the currently requested page was followed. (The word referrer has been misspelled in the RFC as well as in most implementations to the point that it has become standard usage and is considered correct terminology)",
+        "security": "no"
+    },
+    "TE": {
+        "description": "TE: trailers, deflate",
+        "security": "no"
+    },
+    "User-Agent": {
+        "description": "The user agent string of the user agent.",
+        "security": "no"
+    },
+    "Upgrade": {
+        "description": "Upgrade: h2c, HTTPS/1.3, IRC/6.9, RTA/x11, websocket",
+        "security": "no"
+    },
+    "Via": {
+        "description": "Informs the client of proxies through which the response was sent.",
+        "security": "no"
+    },
+    "Warning": {
+        "description": "A general warning about possible problems with the entity body.",
+        "security": "no"
+    },
+    "DNT": {
+        "description": "Requests a web application to disable their tracking of a user. This is Mozilla's version of the X-Do-Not-Track header field (since Firefox 4.0 Beta 11).  Safari and IE9 also have support for this field.",
+        "security": "no"
+    },
+    "X-Forwarded-Host": {
+        "description": "A de facto standard for identifying the original host requested by the client in the Host HTTP request header, since the host name and/or port of the reverse proxy (load balancer) may differ from the origin server handling the request. Superseded by Forwarded header.",
+        "security": "no"
+    },
+    "X-Forwarded-Proto": {
+        "description": "A de facto standard for identifying the originating protocol of an HTTP request, since a reverse proxy (or a load balancer) may communicate with a web server using HTTP even if the request to the reverse proxy is HTTPS.  An alternative form of the header (X-ProxyUser-Ip) is used by Google clients talking to Google servers. Superseded by Forwarded header.",
+        "security": "no"
+    },
+    "Front-End-Https": {
+        "description": "Non-standard header field used by Microsoft applications and load-balancers",
+        "security": "no"
+    },
+    "X-Http-Method-Override": {
+        "description": "Requests a web application to override the method specified in the request (typically POST) with the method given in the header field (typically PUT or DELETE). This can be used when a user agent or firewall prevents PUT or DELETE methods from being sent directly (note that this is either a bug in the software component, which ought to be fixed, or an intentional configuration, in which case bypassing it may be the wrong thing to do).",
+        "security": "no"
+    },
+    "X-ATT-DeviceId": {
+        "description": "Allows easier parsing of the MakeModel/Firmware that is usually found in the User-Agent String of ATT Devices",
+        "security": "no"
+    },
+    "X-Wap-Profile": {
+        "description": "Links to an XML file on the Internet with a full description and details about the device currently connecting. In the example to the right is an XML file for an ATT Samsung Galaxy S2.",
+        "security": "no"
+    },
+    "X-UIDH": {
+        "description": "Server-side deep packet insertion of a unique ID identifying customers of Verizon Wireless; also known as \"perma-cookie\" or \"supercookie\"",
+        "security": "no"
+    },
+    "X-Csrf-Token": {
+        "description": "Used to prevent cross-site request forgery. Alternative header names are: X-CSRFToken",
+        "security": "no"
+    },
+    "Specifying which web sites can participate in cross-origin resource sharing": {
+        "description": "Access-Control-Allow-Origin: *",
+        "security": "no"
+    },
+    "Accept-Patch": {
+        "description": "Specifies which patch document formats this server supports",
+        "security": "no"
+    },
+    "Accept-Ranges": {
+        "description": "What partial content range types this server supports via byte serving",
+        "security": "no"
+    },
+    "Age": {
+        "description": "The age the object has been in a proxy cache in seconds",
+        "security": "no"
+    },
+    "Allow": {
+        "description": "Valid methods for a specified resource. To be used for a 405 Method not allowed",
+        "security": "no"
+    },
+    "Alt-Svc": {
+        "description": "Alt-Svc: http/1.1=\"http2.example.com:8001\"; ma=7200",
+        "security": "no"
+    },
+    "Connection": {
+        "description": "Connection: close",
+        "security": "no"
+    },
+    "Content-Disposition": {
+        "description": "An opportunity to raise a \"File Download\" dialogue box for a known MIME type with binary format or suggest a filename for dynamic content. Quotes are necessary with special characters.",
+        "security": "no"
+    },
+    "Content-Encoding": {
+        "description": "The type of encoding used on the data. See HTTP compression.",
+        "security": "no"
+    },
+    "Content-Language": {
+        "description": "The natural language or languages of the intended audience for the enclosed content",
+        "security": "no"
+    },
+    "Content-Location": {
+        "description": "An alternate location for the returned data",
+        "security": "no"
+    },
+    "Content-Range": {
+        "description": "Where in a full body message this partial message belongs",
+        "security": "no"
+    },
+    "Delta-Base": {
+        "description": "Specifies the delta-encoding entity tag of the response.",
+        "security": "no"
+    },
+    "ETag": {
+        "description": "An identifier for a specific version of a resource, often a message digest",
+        "security": "no"
+    },
+    "Expires": {
+        "description": "Gives the date/time after which the response is considered stale (in \"HTTP-date\" format as defined by RFC 7231)",
+        "security": "no"
+    },
+    "IM": {
+        "description": "Instance-manipulations applied to the response.",
+        "security": "no"
+    },
+    "Last-Modified": {
+        "description": "The last modified date for the requested object (in \"HTTP-date\" format as defined by RFC 7231)",
+        "security": "no"
+    },
+    "Link": {
+        "description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988",
+        "security": "no"
+    },
+    "P3P": {
+        "description": "This field is supposed to set P3P policy, in the form of P3P:CP=\"your_compact_policy\". However, P3P did not take off, most browsers have never fully implemented it, a lot of websites set this field with fake policy text, that was enough to fool browsers the existence of P3P policy and grant permissions for third party cookies.",
+        "security": "no"
+    },
+    "Proxy-Authenticate": {
+        "description": "Request authentication to access the proxy.",
+        "security": "no"
+    },
+    "Public-Key-Pins": {
+        "description": "HTTP Public Key Pinning, announces hash of website's authentic TLS certificate",
+        "security": "no"
+    },
+    "Server": {
+        "description": "A name for the server",
+        "security": "no"
+    },
+    "An HTTP cookie": {
+        "description": "Set-Cookie: UserID=JohnDoe; Max-Age=3600; Version=1",
+        "security": "no"
+    },
+    "Strict-Transport-Security": {
+        "description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains.",
+        "security": "yes"
+    },
+    "Trailer": {
+        "description": "The Trailer general field value indicates that the given set of header fields is present in the trailer of a message encoded with chunked transfer coding.",
+        "security": "no"
+    },
+    "Transfer-Encoding": {
+        "description": "Transfer-Encoding: chunked",
+        "security": "no"
+    },
+    "Vary": {
+        "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server.",
+        "security": "no"
+    },
+    "WWW-Authenticate": {
+        "description": "Indicates the authentication scheme that should be used to access the requested entity.",
+        "security": "no"
+    },
+    "X-Frame-Options": {
+        "description": "Clickjacking protection: deny - no rendering within a frame, sameorigin - no rendering if origin mismatch, allow-from - allow from specified location, allowall - non-standard, allow from any location",
+        "security": "yes"
+    },
+    "Refresh": {
+        "description": "Used in redirection, or when a new resource has been created.  This refresh redirects after 5 seconds. Header extension introduced by Netscape and supported by most web browsers.",
+        "security": "no"
+    },
+    "Status": {
+        "description": "CGI header field specifying the status of the HTTP response. Normal HTTP responses use a separate \"Status-Line\" instead, defined by RFC 7230.",
+        "security": "no"
+    },
+    "X-Content-Duration": {
+        "description": "Provide the duration of the audio or video in seconds; only supported by Gecko browsers",
+        "security": "no"
+    },
+    "X-Content-Type-Options": {
+        "description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type. This also applies to Google Chrome, when downloading extensions.",
+        "security": "yes"
+    },
+    "X-Powered-By": {
+        "description": "Specifies the technology (e.g. ASP.NET, PHP, JBoss) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)",
+        "security": "no"
+    },
+    "X-UA-Compatible": {
+        "description": "Recommends the preferred rendering engine (often a backward-compatibility mode) to use to display the content. Also used to activate Chrome Frame in Internet Explorer.",
+        "security": "no"
+    },
+    "X-XSS-Protection": {
+        "description": "Cross-site scripting (XSS) filter",
+        "security": "yes"
+    }
+}
