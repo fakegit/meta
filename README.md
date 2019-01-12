@@ -19,6 +19,11 @@
 
 ![demo](https://i.ibb.co/cC6Qs9M/Screenshot-2019-01-12-19-42-50.png)
 
+#### Installation
+Navigate to `meta` directory and run the following command as root:
+
+`make install`
+
 #### Documentation
 
 Testing a website's response headers is pretty straight forward:
