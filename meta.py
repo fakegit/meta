@@ -4,9 +4,10 @@ import os
 import re
 import sys
 import json
-import select
 import random
 import argparse
+from checks import cors
+from checks import cookie
 from core.requester import requester
 from core.colors import red, green, white, info, bad, end
 
@@ -25,7 +26,7 @@ def banner():
             newText += char
     print (newText)
 
-with open(sys.path[0] + '/core/headers.json') as file:
+with open(sys.path[0] + '/db/headers.json') as file:
     database = json.load(file)
 
 def information(headers):
@@ -35,7 +36,7 @@ def information(headers):
             result[header] = database[header]['description']
     return result
 
-def security(headers):
+def missing(headers):
     result = {}
     for header in database:
         if database[header]['security'] == 'yes':
@@ -43,53 +44,47 @@ def security(headers):
                 result[header] = database[header]['description']
     return result
 
-def stdinToHeaders(headers):
-    sorted_headers = {}
-    for header in headers:
-        matches = re.findall(r'(.*):\s(.*)', re.sub(r'\r|\n', '', header))
-        for match in matches:
-            header = match[0]
-            value = match[1]
-            try:
-                if value[-1] == ',':
-                    value = value[:-1]
-                sorted_headers[header] = value
-            except IndexError:
-                pass
-    return sorted_headers
+def misconfiguration(headers):
+    result = {}
+    if 'Access-Control-Allow-Origin' in headers:
+        result['Access-Control-Allow-Origin'] = cors.check(args.url)
+    if 'Set-Cookie' in headers:
+        result['Set-Cookie'] = cookie.check(headers['Set-Cookie'])
+    elif 'Cookie' in headers:
+        result['Cookie'] = cookie.check(headers['Cookie'])
+    return result
 
 headers = {}
-piped = select.select([sys.stdin,], [sys.stdin,], [sys.stdin,], 4)[0]
 
-if piped:
-    headers = stdinToHeaders(sys.stdin.readlines())
-elif args.url:
+if args.url:
     headers = requester(args.url).headers
 else:
     banner()
     print ('%s No data to act upon.' % bad)
     quit()
 
-if headers:
-    if piped:
-        if os.name == 'nt':
-            os.system('cls')
-        else:
-            os.system('clear')
+if not args.jsonOutput:
+    banner()
 
+if headers:
     headerInformation = information(headers)
-    missingHeaders = security(headers)
+    missingHeaders = missing(headers)
+    misconfiguration = misconfiguration(headers)
     if args.jsonOutput:
         jsoned = {}
         jsoned['information'] = headerInformation
-        jsoned['security'] = missingHeaders
+        jsoned['missing'] = missingHeaders
+        jsoned['misconfigurations'] = misconfiguration
         sys.stdout.write(json.dumps(jsoned, indent=4))
     else:
-        banner()
         if headerInformation:
             print ('%s Header information\n' % info)
             print (json.dumps(headerInformation, indent=4))
 
         if missingHeaders:
-            print ('\n%s Security issues\n' % bad)
+            print ('\n%s Missing Headers\n' % bad)
             print (json.dumps(missingHeaders, indent=4))
+
+        if missingHeaders:
+            print ('\n%s Mis-configurations\n' % bad)
+            print (json.dumps(misconfiguration, indent=4))
