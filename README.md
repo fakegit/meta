@@ -19,7 +19,16 @@
 
 ![demo](https://i.ibb.co/cC6Qs9M/Screenshot-2019-01-12-19-42-50.png)
 
-#### Installation
+#### Features
+- Describe response headers
+- Check for missing security headers
+- Check for misconfigurations
+    - CORS
+    - Cookie
+
+more to come...
+
+#### Installation [Optional]
 Navigate to `meta` directory and run the following command as root:
 
 `make install`
@@ -29,10 +38,6 @@ Navigate to `meta` directory and run the following command as root:
 Testing a website's response headers is pretty straight forward:
 
 `python meta.py -u http://example.com`
-
-or
-
-`curl -I http://example.com | meta`
 
 The output can be strictly formatted to JSON as follows:
 
